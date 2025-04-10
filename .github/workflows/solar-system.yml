@@ -6,7 +6,10 @@ on:
         branches:
             - main
             - 'feature/*'
-
+env:
+    MONGO_URI: 'mongodb://${{ vars.MONGO_USERNAME }}:${{secrets.MONGO_PASSWORD}}@:${{vars.HOST}}/myDatabase?authSource=admin'
+    MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 jobs:
         unit-testing:
             name: Unit Testing
