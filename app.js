@@ -19,10 +19,12 @@ mongoose.connect(process.env.MONGO_URI, {
 }, function(err) {
     if (err) {
         console.log("error!! " + err)
+        process.exit(1);  // 👈 Kill the process if MongoDB isn't reachable
     } else {
-      //  console.log("MongoDB Connection Successful")
+        console.log("MongoDB Connection Successful");
     }
-})
+});
+
 
 var Schema = mongoose.Schema;
 
